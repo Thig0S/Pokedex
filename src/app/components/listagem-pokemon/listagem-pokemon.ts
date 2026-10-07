@@ -29,6 +29,13 @@ interface PokemonRepostaHttp {
   };
 }
 
+interface Pokemon {
+  id: string;
+  name: string;
+  types: string[];
+  sprite: string | null;
+}
+
 @Component({
   imports: [],
   selector: 'app-listagem-pokemon',
@@ -46,11 +53,20 @@ export class ListagemPokemon {
 
         return forkJoin(requisicoes);
       }),
+      map((detalhes: PokemonRepostaHttp[]): Pokemon[] => {
+        return detalhes.map((detalhe) => ({
+          id: detalhe.id,
+          name: detalhe.name.toUpperCase(),
+          types: detalhe.types.map((item) => item.type.name),
+          sprite: detalhe.sprites.front_default,
+        }));
+      }),
     ),
     {
       initialValue: null,
     },
   );
-
-  constructor() {}
+  protected paraTitleCase(texto: string) {
+    return texto.toLowerCase().replace(/\b\w/g, (l) => l.toUpperCase());
+  }
 }
