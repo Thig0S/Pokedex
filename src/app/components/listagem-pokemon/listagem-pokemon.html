@@ -1,0 +1,24 @@
+<div class="container my-3">
+  <div class="row g-3">
+    <!-- para cada results nao null do objetoResposta -->
+    @for (pokemon of objetoResposta(); track pokemon.id) {
+      <div class="col-md-6 col-lg-2">
+        <div class="card p-3 text-center">
+          <span class="fs-6 card-title">{{ pokemon.name }}</span>
+
+          <div class="d-flex justify-content-center gap-2">
+            @for (tipo of pokemon.types; track tipo) {
+              <span class="badge rounded-pill text-light">{{ tipo.type.name }}</span>
+            }
+          </div>
+
+          @if (pokemon.sprites) {
+            <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+          } @else {
+            <p>Imagem não dísponivel!</p>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
