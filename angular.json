@@ -10,7 +10,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "none",
+          "skipTests": true
         }
       },
       "root": "",
@@ -31,7 +32,8 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "scripts": ["bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
