@@ -5,7 +5,7 @@ import { POKE_API_URL } from './pokemon/data/pokemon.service';
 
 import { Routes } from '@angular/router';
 
-const routes: Routes = [];
+export const routes: Routes = [];
 
 export const appConfig: ApplicationConfig = {
   providers: [

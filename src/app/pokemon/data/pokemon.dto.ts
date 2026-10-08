@@ -16,7 +16,7 @@ export interface TipoPokemnonRespostaHttp {
 }
 
 export interface PokemonRespostaHttp {
-  id: string;
+  id: number;
   name: string;
   types: TipoPokemnonRespostaHttp[];
   sprites: {
