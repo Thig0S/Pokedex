@@ -9,9 +9,11 @@ import {
   paraTitleCase,
   PokemonTypeViewModel,
 } from '../pokemon.util';
+import { RouterLink } from '@angular/router';
 
 interface PokemonCardViewModel {
   readonly id: number;
+  readonly name: string;
   readonly displayName: string;
   readonly imageUrl: string | null;
   readonly imageAlt: string;
@@ -30,6 +32,7 @@ export function paraCardViewModel(dto: Pokemon): PokemonCardViewModel {
 
   return {
     id: dto.id,
+    name: dto.name,
     displayName: displayName,
     imageUrl: dto.sprite,
     imageAlt: `Imagem de ${displayName}`,
@@ -39,7 +42,7 @@ export function paraCardViewModel(dto: Pokemon): PokemonCardViewModel {
 }
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-listagem-pokemon',
   templateUrl: './listagem-pokemon.html',
   styleUrl: './listagem-pokemon.scss',
