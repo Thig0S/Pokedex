@@ -3,12 +3,18 @@
     <!-- para cada results nao null do objetoResposta -->
     @for (pokemon of objetoResposta(); track pokemon.id) {
       <div class="col-md-6 col-lg-2">
-        <div class="card p-3 text-center">
+        <div
+          class="card p-3 text-center"
+          [style.border]="`2px solid transparent`"
+          [style.background]="pokemon.backgroundColor"
+        >
           <span class="fs-6 card-title">{{ pokemon.displayName }}</span>
 
           <div class="d-flex justify-content-center gap-2">
             @for (tipo of pokemon.types; track tipo) {
-              <span class="badge rounded-pill text-light">{{ tipo.displayName }}</span>
+              <span class="badge rounded-pill text-light" [style.background-color]="tipo.color">{{
+                tipo.displayName
+              }}</span>
             }
           </div>
 
