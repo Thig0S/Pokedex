@@ -30,10 +30,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": ["bootstrap/dist/js/bootstrap.min.js"]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
